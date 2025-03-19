@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set for Life Analyzer</title>
+
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
         header { background: #4CAF50; color: white; text-align: center; padding: 10px; }
@@ -17,12 +18,27 @@
         th { background-color: #f4f4f4; }
         #results { margin-top: 20px; }
     </style>
+
+    <!-- JavaScript to block direct access -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const allowedReferrer = "https://your-main-site.vercel.app"; // Replace with your actual main site URL
+            const referrer = document.referrer;
+
+            if (!referrer || !referrer.startsWith(allowedReferrer)) {
+                // Redirect back to the main site if accessed directly
+                window.location.href = allowedReferrer;
+            }
+        });
+    </script>
+
 </head>
 <body>
     <header>
-        <h1>set for life number analysis and generate numbers</h1>
-Download set for life results from the national lottery in csv format and upload
+        <h1>Set for Life Number Analysis and Generate Numbers</h1>
+        Download Set for Life results from the national lottery in CSV format and upload
     </header>
+
     <div class="tabs">
         <button class="tablink" onclick="openTab(event, 'uploadTab')">Results</button>
         <button class="tablink" onclick="openTab(event, 'analysisTab')">Analysis</button>
@@ -31,6 +47,9 @@ Download set for life results from the national lottery in csv format and upload
         <button class="tablink" onclick="openTab(event, 'probabilitiesTab')">Probabilities</button>
         <button class="tablink" onclick="openTab(event, 'DisclaimerTab')">Disclaimer</button>
     </div>
+</body>
+</html>
+
 
     <!-- Disclaimer Tab -->
     <div id="DisclaimerTab" class="tabcontent">
